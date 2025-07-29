@@ -33,17 +33,20 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Reverse the contents of the array and then print the array out to the console.
             //Try for 2 different ways
-            /*  1) First way, using a custom method => Hint: Array._____(); 
-                2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
-            */
             
-            Array.Reverse(numbers);
-
-            Console.WriteLine("All Numbers Reversed:");
+            //1) First way, using a custom method => Hint: Array._____();
+            Console.WriteLine("#1 Custom Reverse Array Method");
+             Array.Reverse(numbers);
+             NumberPrinter(numbers);
+             
+            // 2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
+            Console.WriteLine("#2 Custom Reverse Array Method");
+            ReverseArray(numbers);
+            NumberPrinter(numbers);
+            
 
             Console.WriteLine("---------REVERSE CUSTOM------------");
-
-            Console.WriteLine("-------------------");
+            
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
             Console.WriteLine("Multiple of three = 0: ");
@@ -61,35 +64,26 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
-
-            Console.WriteLine("=== Arrays Section!! === ");
             
-            
-            //NUMBER-CHECKER
-            double[] numCheck = new double[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-                                            22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-                                            41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-                                            60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78,
-                                            79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97,
-                                            98, 99, 100 };
 
             #region Lists
             Console.WriteLine("************Start Lists**************");
 
             /*   Set Up   */
             //TODO: Create an integer List
-            var numbersList = new List<int>();
+            var numbersList = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
             
 
             //TODO: Print the capacity of the list to the console
             Console.WriteLine(numbersList.Capacity);
+            //Capacity = 32
 
             //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
             Populater(numbersList);
 
             //TODO: Print the new capacity
             Console.WriteLine(numbersList.Capacity);
-            
+            //New Capacity = 64
 
             Console.WriteLine("---------------------");
 
@@ -100,19 +94,17 @@ namespace CollectionsMasterConsoleUI
 
             do
             {
-                Console.WriteLine("What mumber will you search for in the numbers list?");
+                Console.WriteLine("What number will you search for in the numbers list?");
                 isANumber = int.TryParse(Console.ReadLine(), out searchNumber);
             } while (!isANumber);
             
             NumberChecker(numbersList, searchNumber);
             
-            Console.WriteLine("What number will you search for in the number list?");
-            
             Console.WriteLine("-------------------");
 
             Console.WriteLine("All Numbers:");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            NumberPrinter(numbersList);
+            Console.WriteLine(string.Join(", ", numbersList));
             Console.WriteLine("-------------------");
 
 
@@ -120,29 +112,27 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("Evens Only!!");
             OddKiller(numbersList);
             
+            
             Console.WriteLine("------------------");
+            
 
             //TODO: Sort the list then print results
             Console.WriteLine("Sorted Evens!!");
             numbersList.Sort();
-            
             NumberPrinter(numbersList);
+            
             
             Console.WriteLine("------------------");
 
             //TODO: Convert the list to an array and store that into a variable
             var listCopy = numbersList.ToArray();
+            Console.WriteLine(string.Join(", ", listCopy));
 
             //TODO: Clear the list
             numbersList.Clear();
             
 
             #endregion
-
-            Console.WriteLine("=== Lists Section!! ===");
-            //ODD-METHOD METHOD
-            List<int> numberList = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            OddKiller(numberList);
         }
 
         private static void ThreeKiller(int[] numbers)
@@ -220,8 +210,6 @@ namespace CollectionsMasterConsoleUI
                 //Move the values from the indexes toward each other
                 start++;
                 end--;
-                
-
             }
         }
 
